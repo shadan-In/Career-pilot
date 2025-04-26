@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
            {/* footer */}
            <footer className="bg-muted/50 py-12 mt-20">
            <div className="container mx-auto px-4 text-center text-muted-foreground">
-            <p>Made with love by Shadan Ansari</p>
+            <p>Made by Shadan Ansari</p>
            </div>
            </footer>
           </ThemeProvider>
