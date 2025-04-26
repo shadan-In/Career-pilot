@@ -1,9 +1,20 @@
 import { getAssessments } from "@/actions/interview";
+import { getUserOnboardingStatus } from "@/actions/user";
+import { redirect } from "next/navigation";
 import StatsCards from "./_components/stats-cards";
 import PerformanceChart from "./_components/performance-chart";
 import QuizList from "./_components/quiz-list";
 
 export default async function InterviewPrepPage() {
+  // Check if user has completed onboarding
+  const { isOnboarded } = await getUserOnboardingStatus();
+
+  // If not onboarded, redirect to onboarding page
+  if (!isOnboarded) {
+    redirect("/onboarding");
+  }
+
+  // User is onboarded, get assessments
   const assessments = await getAssessments();
 
   return (
